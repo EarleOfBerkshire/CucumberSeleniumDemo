@@ -34,6 +34,11 @@ public class LoginSteps {
     loginPage.login(username, password);
   }
 
+  @Then("the user should be logged in")
+  public void the_user_should_be_logged_in() {
+    Assertions.assertTrue(loginPage.isOnInventoryPage(), "User is not on inventory page after login.");
+  }
+
   @Then("the user should see an error message {string}")
   public void the_user_should_see_an_error_message(String expectedMessage) {
     String actualMessage = loginPage.getErrorMessage();

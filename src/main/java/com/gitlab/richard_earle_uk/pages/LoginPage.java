@@ -24,4 +24,8 @@ public class LoginPage {
     public String getErrorMessage() {
         return driver.findElement(errorMessage).getText();
     }
+
+    public boolean isOnInventoryPage() {
+        return driver.getCurrentUrl().contains("inventory.html");
+    }
 }
