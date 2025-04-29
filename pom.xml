@@ -70,14 +70,8 @@
                     <forkCount>0</forkCount>
                     <testFailureIgnore>false</testFailureIgnore>
                     <includes>
-                        <include>**/*Test.class</include>
+                        <include>**/TestRunner.java</include>
                     </includes>
-                    <properties>
-                        <property>
-                            <name>junit.platform.engine.discovery.discoverers</name>
-                            <value>io.cucumber.junit.platform.engine.CucumberDiscoverySelector</value>
-                        </property>
-                    </properties>
                 </configuration>
             </plugin>
         </plugins>
