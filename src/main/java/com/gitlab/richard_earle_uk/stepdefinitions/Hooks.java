@@ -1,8 +1,12 @@
 package com.gitlab.richard_earle_uk.stepdefinitions;
 
 import com.gitlab.richard_earle_uk.utils.DriverFactory;
+import com.gitlab.richard_earle_uk.utils.ScreenshotUtil;
 import io.cucumber.java.After;
+import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
+import org.openqa.selenium.WebDriver;
 
 public class Hooks {
 
@@ -15,4 +19,13 @@ public class Hooks {
     public void tearDown() {
         DriverFactory.quitDriver();
     }
+
+    @AfterStep
+    public void takeScreenshot(Scenario scenario) {
+        WebDriver driver = DriverFactory.getDriver();
+        if (scenario.isFailed()) {
+            ScreenshotUtil.captureScreenshot(driver, scenario.getName());
+        }
+    }
+    
 }

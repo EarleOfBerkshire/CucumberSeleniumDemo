@@ -54,17 +54,7 @@ public class LoginSteps {
         expectedMessage, actualMessage, "Error message does not match expected.");
   }
 
-  @AfterStep
-  public void takeScreenshot(Scenario scenario) {
-    if (scenario.isFailed()) {
-      ScreenshotUtil.captureScreenshot(driver, scenario.getName());
-    }
-  }
 
-  @After
-  public void tearDown() {
-    WebDriverManagerUtil.quitDriver();
-  }
 
 
 }
