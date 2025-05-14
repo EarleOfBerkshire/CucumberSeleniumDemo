@@ -17,6 +17,7 @@ public class Hooks {
 
     @After
     public void tearDown() {
+        System.out.println("Running tearDown...");
         DriverFactory.quitDriver();
     }
 
@@ -24,8 +25,10 @@ public class Hooks {
     public void takeScreenshot(Scenario scenario) {
         WebDriver driver = DriverFactory.getDriver();
         if (scenario.isFailed()) {
-            ScreenshotUtil.captureScreenshot(driver, scenario.getName());
+            byte[] screenshot = ScreenshotUtil.captureScreenshotAsBytes(driver);
+            scenario.attach(screenshot, "image/png", "Failed Step Screenshot");
         }
     }
+
     
 }
