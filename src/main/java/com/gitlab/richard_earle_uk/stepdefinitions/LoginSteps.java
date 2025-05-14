@@ -15,6 +15,8 @@ import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 
 public class LoginSteps {
+  private static final String VALID_USERNAME = "standard_user";
+  private static final String VALID_PASSWORD = "secret_sauce";
   private WebDriver driver;
   private LoginPage loginPage;
 
@@ -56,5 +58,10 @@ public class LoginSteps {
   @After
   public void tearDown() {
     WebDriverManagerUtil.quitDriver();
+  }
+
+  @When("the user logs in with valid credentials")
+  public void theUserLogsInWithValidCredentials() {
+    loginPage.login(VALID_USERNAME, VALID_PASSWORD);
   }
 }
