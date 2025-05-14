@@ -1,4 +1,5 @@
-Feature: Add to Cart and Checkout
+@checkout
+Feature: Checkout
 
   Background: Successful Login
     Given the user is on the login page

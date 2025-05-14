@@ -1,19 +1,28 @@
 package com.gitlab.richard_earle_uk.stepdefinitions;
 
+import com.gitlab.richard_earle_uk.pages.CartPage;
 import com.gitlab.richard_earle_uk.pages.ProductsPage;
 import com.gitlab.richard_earle_uk.utils.WebDriverManagerUtil;
 import io.cucumber.java.Before;
-import io.cucumber.java.en.*;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 
 public class CartSteps {
 
+  private final String FIRST_ITEM_NAME = "Sauce Labs Backpack";
+  private final String FIRST_ITEM_PRICE = "29.99";
   private WebDriver driver;
   private ProductsPage productsPage;
+  private CartPage cartPage;
 
   @Before
   public void setup() {
     driver = WebDriverManagerUtil.getDriver();
+    productsPage = new ProductsPage(driver);
+    cartPage = new CartPage(driver);
   }
 
   @When("the user adds the first item to the cart")
@@ -28,16 +37,19 @@ public class CartSteps {
 
   @Then("the user should see the first item in the cart")
   public void theUserShouldSeeTheFirstItemInTheCart() {
-    // TODO: Implement verification that the first item is in the cart
-  }
-
-  @And("the user should see the correct item name")
-  public void theUserShouldSeeTheCorrectItemName() {
-    // TODO: Implement verification of the item's name
+    String actualItemName = cartPage.getCartItemName(0);
+    Assertions.assertEquals(FIRST_ITEM_NAME, actualItemName, "Item name does not match expected.");
   }
 
   @And("the user should see the correct item price")
   public void theUserShouldSeeTheCorrectItemPrice() {
-    // TODO: Implement verification of the item's price
+    String actualItemPrice = cartPage.getCartRowItemPrice(0);
+    Assertions.assertEquals(
+        FIRST_ITEM_PRICE, actualItemPrice, "Item price does not match expected.");
+  }
+
+  @And("the user proceeds to checkout")
+  public void theUserProceedsToCheckout() {
+    cartPage.clickCheckoutButton();
   }
 }
