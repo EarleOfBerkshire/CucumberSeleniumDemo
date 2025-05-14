@@ -2,6 +2,7 @@ package com.gitlab.richard_earle_uk.stepdefinitions;
 
 import com.gitlab.richard_earle_uk.pages.CartPage;
 import com.gitlab.richard_earle_uk.pages.ProductsPage;
+import com.gitlab.richard_earle_uk.utils.DriverFactory;
 import com.gitlab.richard_earle_uk.utils.WebDriverManagerUtil;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
@@ -14,7 +15,7 @@ public class CartSteps {
 
   private final String FIRST_ITEM_NAME = "Sauce Labs Backpack";
   private final String FIRST_ITEM_PRICE = "29.99";
-  private WebDriver driver;
+  private WebDriver driver = DriverFactory.getDriver();
   private ProductsPage productsPage;
   private CartPage cartPage;
 

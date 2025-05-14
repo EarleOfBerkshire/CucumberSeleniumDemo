@@ -2,6 +2,7 @@ package com.gitlab.richard_earle_uk.stepdefinitions;
 
 import com.gitlab.richard_earle_uk.pages.LoginPage;
 import com.gitlab.richard_earle_uk.utils.ConfigReader;
+import com.gitlab.richard_earle_uk.utils.DriverFactory;
 import com.gitlab.richard_earle_uk.utils.ScreenshotUtil;
 import com.gitlab.richard_earle_uk.utils.WebDriverManagerUtil;
 import io.cucumber.java.After;
@@ -17,7 +18,7 @@ import org.openqa.selenium.WebDriver;
 public class LoginSteps {
   private static final String VALID_USERNAME = "standard_user";
   private static final String VALID_PASSWORD = "secret_sauce";
-  private WebDriver driver;
+  private WebDriver driver = DriverFactory.getDriver();
   private LoginPage loginPage;
 
   @Before
