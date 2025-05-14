@@ -36,6 +36,11 @@ public class LoginSteps {
     loginPage.login(username, password);
   }
 
+  @When("the user logs in with valid credentials")
+  public void theUserLogsInWithValidCredentials() {
+    loginPage.login(VALID_USERNAME, VALID_PASSWORD);
+  }
+
   @Then("the user should be logged in")
   public void the_user_should_be_logged_in() {
     Assertions.assertTrue(loginPage.isOnInventoryPage(), "User is not on inventory page after login.");
@@ -60,8 +65,5 @@ public class LoginSteps {
     WebDriverManagerUtil.quitDriver();
   }
 
-  @When("the user logs in with valid credentials")
-  public void theUserLogsInWithValidCredentials() {
-    loginPage.login(VALID_USERNAME, VALID_PASSWORD);
-  }
+
 }
