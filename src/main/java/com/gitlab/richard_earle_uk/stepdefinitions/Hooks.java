@@ -11,31 +11,29 @@ import org.openqa.selenium.WebDriver;
 
 public class Hooks {
 
-    private final WebDriverManagerUtil webDriverManager;
+  private final WebDriverManagerUtil webDriverManager;
 
-    public Hooks(WebDriverManagerUtil webDriverManager) {
-        this.webDriverManager = webDriverManager;
+  public Hooks(WebDriverManagerUtil webDriverManager) {
+    this.webDriverManager = webDriverManager;
+  }
+
+  @Before
+  public void setUp() {
+    WebDriver driver = DriverFactory.getDriver();
+    webDriverManager.getDriver();
+  }
+
+  @After
+  public void tearDown(Scenario scenario) {
+    webDriverManager.quitDriver();
+  }
+
+  @AfterStep
+  public void takeScreenshot(Scenario scenario) {
+    WebDriver driver = webDriverManager.getDriver();
+    if (scenario.isFailed() && driver != null) {
+      byte[] screenshot = ScreenshotUtil.captureScreenshotAsBytes(driver);
+      scenario.attach(screenshot, "image/png", "failure-screenshot");
     }
-
-
-    @Before
-    public void setUp() {
-        WebDriver driver = DriverFactory.getDriver();
-        webDriverManager.getDriver();    }
-
-    @After
-    public void tearDown(Scenario scenario) {
-        webDriverManager.quitDriver();
-    }
-
-    @AfterStep
-    public void takeScreenshot(Scenario scenario) {
-        WebDriver driver = DriverFactory.getDriver();
-        if (scenario.isFailed()) {
-            byte[] screenshot = ScreenshotUtil.captureScreenshotAsBytes(driver);
-            scenario.attach(screenshot, "image/png", "Failed Step Screenshot");
-        }
-    }
-
-    
+  }
 }

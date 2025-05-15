@@ -6,6 +6,11 @@ import org.openqa.selenium.WebDriver;
 
 public class ScreenshotUtil {
   public static byte[] captureScreenshotAsBytes(WebDriver driver) {
-    return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+    if (driver != null) {
+      return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+    } else {
+      System.err.println("ScreenshotUtil: WebDriver is null, cannot capture screenshot.");
+      return new byte[0]; // return empty byte array to avoid null
+    }
   }
 }
