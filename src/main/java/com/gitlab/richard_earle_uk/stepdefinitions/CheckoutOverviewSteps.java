@@ -9,7 +9,7 @@ public class CheckoutOverviewSteps {
   private final CheckoutOverviewPage checkoutOverviewPage;
 
   public CheckoutOverviewSteps(TestContext context) {
-    this.checkoutOverviewPage = new CheckoutOverviewPage(context.getDriver());
+    this.checkoutOverviewPage = context.getCheckoutOverviewPage();
   }
 
   @When("the user finishes the checkout")

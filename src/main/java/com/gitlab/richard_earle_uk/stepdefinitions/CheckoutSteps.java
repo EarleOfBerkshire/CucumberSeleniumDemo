@@ -12,7 +12,7 @@ public class CheckoutSteps {
   private final CheckoutPage checkoutPage;
 
   public CheckoutSteps(TestContext context) {
-    this.checkoutPage = new CheckoutPage(context.getDriver());
+    this.checkoutPage = context.getCheckoutPage();
   }
 
   @When("the user enters valid checkout information")

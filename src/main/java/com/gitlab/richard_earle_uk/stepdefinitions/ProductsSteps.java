@@ -3,7 +3,6 @@ package com.gitlab.richard_earle_uk.stepdefinitions;
 import com.gitlab.richard_earle_uk.context.TestContext;
 import com.gitlab.richard_earle_uk.pages.CartPage;
 import com.gitlab.richard_earle_uk.pages.ProductsPage;
-import com.gitlab.richard_earle_uk.utils.WebDriverManagerUtil;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 import org.junit.jupiter.api.Assertions;

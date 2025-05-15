@@ -11,7 +11,7 @@ public class OrderConfirmationSteps {
   private final OrderConfirmationPage orderConfirmationPage;
 
   public OrderConfirmationSteps(TestContext context) {
-    this.orderConfirmationPage = new OrderConfirmationPage(context.getDriver());
+    this.orderConfirmationPage = context.getOrderConfirmationPage();
   }
 
   @Then("the user should see a confirmation message")
