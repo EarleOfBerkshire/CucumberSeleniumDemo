@@ -18,14 +18,12 @@ public class CheckoutOverviewSteps {
   private static final String DEFAULT_POSTAL_CODE = "12345";
   private final String EXPECTED_ORDER_CONFIRMATION_HEADER = "THANK YOU FOR YOUR ORDER";
 
-  private WebDriver driver = DriverFactory.getDriver();
+  private final WebDriver driver;
   private ProductsPage productsPage;
   private CheckoutOverviewPage checkoutOverviewPage;
 
-  @Before
-  public void setup() {
-    driver = WebDriverManagerUtil.getDriver();
-    checkoutOverviewPage = new CheckoutOverviewPage(driver);
+  public CheckoutOverviewSteps(WebDriver driver) {
+    this.driver = driver;
   }
 
 

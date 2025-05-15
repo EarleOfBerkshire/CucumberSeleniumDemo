@@ -10,9 +10,16 @@ import org.openqa.selenium.WebDriver;
 
 public class Hooks {
 
+    private final WebDriver driver;
+
+    // Constructor injection of driver
+    public Hooks(WebDriver driver) {
+        this.driver = driver;
+    }
+
     @Before
     public void setUp() {
-        DriverFactory.getDriver(); // Ensures driver is initialized
+        // driver already injected, can initialize here if needed
     }
 
     @After

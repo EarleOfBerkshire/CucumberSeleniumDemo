@@ -14,7 +14,7 @@ public class CartSteps {
 
   private final String FIRST_ITEM_NAME = "Sauce Labs Backpack";
   private final String FIRST_ITEM_PRICE = "29.99";
-  private WebDriver driver = DriverFactory.getDriver();
+  private WebDriver driver;
   private ProductsPage productsPage;
   private CartPage cartPage;
 

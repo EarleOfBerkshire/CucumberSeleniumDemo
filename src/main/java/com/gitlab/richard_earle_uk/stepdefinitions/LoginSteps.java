@@ -18,12 +18,11 @@ import org.openqa.selenium.WebDriver;
 public class LoginSteps {
   private static final String VALID_USERNAME = "standard_user";
   private static final String VALID_PASSWORD = "secret_sauce";
-  private WebDriver driver = DriverFactory.getDriver();
+  private final WebDriver driver;
   private LoginPage loginPage;
 
-  @Before
-  public void setup() {
-    driver = WebDriverManagerUtil.getDriver();
+  public LoginSteps(WebDriver driver) {
+    this.driver = driver;
   }
 
   @Given("the user is on the login page")

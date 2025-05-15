@@ -10,13 +10,11 @@ import org.openqa.selenium.WebDriver;
 
 public class ProductsSteps {
 
-  private WebDriver driver = DriverFactory.getDriver();
+  private final WebDriver driver;
   private ProductsPage productsPage;
 
-  @Before
-  public void setup() {
-    driver = WebDriverManagerUtil.getDriver();
-    productsPage = new ProductsPage(driver);
+  public ProductsSteps(WebDriver driver) {
+    this.driver = driver;
   }
 
   @When("the user adds the first item to the cart")
