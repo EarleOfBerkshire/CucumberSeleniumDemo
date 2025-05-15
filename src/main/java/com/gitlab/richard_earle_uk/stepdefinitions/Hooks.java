@@ -2,6 +2,8 @@ package com.gitlab.richard_earle_uk.stepdefinitions;
 
 import com.gitlab.richard_earle_uk.utils.DriverFactory;
 import com.gitlab.richard_earle_uk.utils.ScreenshotUtil;
+import com.gitlab.richard_earle_uk.context.WebDriverContext;
+
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
@@ -10,26 +12,24 @@ import org.openqa.selenium.WebDriver;
 
 public class Hooks {
 
-    private final WebDriver driver;
+    private final WebDriverContext context;
 
-    // Constructor injection of driver
-    public Hooks(WebDriver driver) {
-        this.driver = driver;
+    public Hooks(WebDriverContext context) {
+        this.context = context;
     }
+
 
     @Before
     public void setUp() {
-        // driver already injected, can initialize here if needed
-    }
+        WebDriver driver = DriverFactory.getDriver();
+        context.setDriver(driver);    }
 
     @After
     public void tearDown(Scenario scenario) {
-        System.out.println("Tearing down after scenario: " + scenario.getName());
-        if (DriverFactory.getDriver() != null) {
-            System.out.println("Quitting driver...");
-            DriverFactory.quitDriver();
-        } else {
-            System.out.println("Driver was already null.");
+        WebDriver driver = context.getDriver();
+        if (driver != null) {
+            driver.quit();
+            context.setDriver(null);
         }
     }
 

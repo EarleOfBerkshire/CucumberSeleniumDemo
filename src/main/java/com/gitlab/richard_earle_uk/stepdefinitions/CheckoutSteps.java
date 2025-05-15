@@ -1,5 +1,6 @@
 package com.gitlab.richard_earle_uk.stepdefinitions;
 
+import com.gitlab.richard_earle_uk.context.WebDriverContext;
 import com.gitlab.richard_earle_uk.pages.CheckoutOverviewPage;
 import com.gitlab.richard_earle_uk.pages.CheckoutPage;
 import com.gitlab.richard_earle_uk.pages.OrderConfirmationPage;
@@ -20,10 +21,9 @@ public class CheckoutSteps {
   private ProductsPage productsPage;
   private CheckoutPage checkoutPage;
 
-  public CheckoutSteps(WebDriver driver) {
-    this.driver = driver;
+  public CheckoutSteps(WebDriverContext context) {
+    this.driver = context.getDriver();
   }
-
   @When("the user enters valid checkout information")
   public void theUserEntersValidCheckoutInformation() {
     checkoutPage.enterCheckoutDetails(DEFAULT_FIRST_NAME, DEFAULT_LAST_NAME, DEFAULT_POSTAL_CODE);

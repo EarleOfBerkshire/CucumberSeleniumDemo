@@ -1,5 +1,6 @@
 package com.gitlab.richard_earle_uk.stepdefinitions;
 
+import com.gitlab.richard_earle_uk.context.WebDriverContext;
 import com.gitlab.richard_earle_uk.pages.LoginPage;
 import com.gitlab.richard_earle_uk.utils.ConfigReader;
 import com.gitlab.richard_earle_uk.utils.DriverFactory;
@@ -21,10 +22,9 @@ public class LoginSteps {
   private final WebDriver driver;
   private LoginPage loginPage;
 
-  public LoginSteps(WebDriver driver) {
-    this.driver = driver;
+  public LoginSteps(WebDriverContext context) {
+    this.driver = context.getDriver();
   }
-
   @Given("the user is on the login page")
   public void user_is_on_login_page() {
     driver.get(ConfigReader.get("base.url"));
