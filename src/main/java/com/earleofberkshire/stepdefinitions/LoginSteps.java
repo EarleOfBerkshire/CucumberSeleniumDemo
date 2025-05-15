@@ -1,8 +1,8 @@
 package com.earleofberkshire.stepdefinitions;
 
+import com.earleofberkshire.pages.LoginPage;
 import com.earleofberkshire.utils.ConfigReader;
 import com.earleofberkshire.utils.WebDriverManagerUtil;
-import com.earleofberkshire.pages.LoginPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -16,17 +16,17 @@ public class LoginSteps {
   private LoginPage loginPage;
 
   public LoginSteps(WebDriverManagerUtil webDriverManager) {
-    this.driver = webDriverManager.getDriver();
+    this.driver = WebDriverManagerUtil.getDriver();
   }
 
   @Given("the user is on the login page")
-  public void user_is_on_login_page() {
+  public void userIsOnLoginPage() {
     driver.get(ConfigReader.get("base.url"));
     loginPage = new LoginPage(driver);
   }
 
   @When("the user logs in with username {string} and password {string}")
-  public void user_logs_in(String username, String password) {
+  public void userLogsIn(String username, String password) {
     loginPage.login(username, password);
   }
 
@@ -36,13 +36,13 @@ public class LoginSteps {
   }
 
   @Then("the user should be logged in")
-  public void the_user_should_be_logged_in() {
+  public void theUserShouldBeLoggedIn() {
     Assertions.assertTrue(
         loginPage.isOnInventoryPage(), "User is not on inventory page after login.");
   }
 
   @Then("the user should see an error message {string}")
-  public void the_user_should_see_an_error_message(String expectedMessage) {
+  public void theUserShouldSeeAnErrorMessage(String expectedMessage) {
     String actualMessage = loginPage.getErrorMessage();
     Assertions.assertEquals(
         expectedMessage, actualMessage, "Error message does not match expected.");
