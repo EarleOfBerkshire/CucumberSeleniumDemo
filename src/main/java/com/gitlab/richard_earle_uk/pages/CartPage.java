@@ -1,20 +1,18 @@
 package com.gitlab.richard_earle_uk.pages;
 
-import com.gitlab.richard_earle_uk.utils.ElementUtil;
-import com.gitlab.richard_earle_uk.utils.WebDriverManagerUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import java.util.List;
 
-public class CartPage {
+public class CartPage extends BasePage {
+
   private static final By cartRowItemName = By.className("inventory_item_name");
   private static final By cartRowItemPrice = By.className("inventory_item_price");
   private static final By checkoutButton = By.className("checkout_button");
-  private final WebDriver driver;
-  private final ElementUtil elementUtil;
 
-  public CartPage(WebDriverManagerUtil driverManagerUtil) {
-    this.driver = driverManagerUtil.getDriver();
-    this.elementUtil = new ElementUtil(driver);
+  public CartPage(WebDriver driver) {
+    super(driver);
   }
 
   public String getCartItemName(int cartRow) {
@@ -28,5 +26,10 @@ public class CartPage {
 
   public void clickCheckoutButton() {
     elementUtil.click(checkoutButton);
+  }
+
+  @Override
+  public boolean isLoaded() {
+    return elementUtil.isElementDisplayed(checkoutButton);
   }
 }
