@@ -4,6 +4,7 @@ import com.gitlab.richard_earle_uk.utils.DriverFactory;
 import com.gitlab.richard_earle_uk.utils.ScreenshotUtil;
 import com.gitlab.richard_earle_uk.context.WebDriverContext;
 
+import com.gitlab.richard_earle_uk.utils.WebDriverManagerUtil;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
@@ -12,25 +13,21 @@ import org.openqa.selenium.WebDriver;
 
 public class Hooks {
 
-    private final WebDriverContext context;
+    private final WebDriverManagerUtil webDriverManager;
 
-    public Hooks(WebDriverContext context) {
-        this.context = context;
+    public Hooks(WebDriverManagerUtil webDriverManager) {
+        this.webDriverManager = webDriverManager;
     }
 
 
     @Before
     public void setUp() {
         WebDriver driver = DriverFactory.getDriver();
-        context.setDriver(driver);    }
+        webDriverManager.getDriver();    }
 
     @After
     public void tearDown(Scenario scenario) {
-        WebDriver driver = context.getDriver();
-        if (driver != null) {
-            driver.quit();
-            context.setDriver(null);
-        }
+        webDriverManager.quitDriver();
     }
 
     @AfterStep

@@ -22,8 +22,8 @@ public class LoginSteps {
   private final WebDriver driver;
   private LoginPage loginPage;
 
-  public LoginSteps(WebDriverContext context) {
-    this.driver = context.getDriver();
+  public LoginSteps(WebDriverManagerUtil webDriverManager) {
+    this.driver = webDriverManager.getDriver();
   }
   @Given("the user is on the login page")
   public void user_is_on_login_page() {

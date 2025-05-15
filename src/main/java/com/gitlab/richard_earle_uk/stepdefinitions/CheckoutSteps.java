@@ -21,8 +21,8 @@ public class CheckoutSteps {
   private ProductsPage productsPage;
   private CheckoutPage checkoutPage;
 
-  public CheckoutSteps(WebDriverContext context) {
-    this.driver = context.getDriver();
+  public CheckoutSteps(WebDriverManagerUtil webDriverManager) {
+    this.driver = webDriverManager.getDriver();
   }
   @When("the user enters valid checkout information")
   public void theUserEntersValidCheckoutInformation() {

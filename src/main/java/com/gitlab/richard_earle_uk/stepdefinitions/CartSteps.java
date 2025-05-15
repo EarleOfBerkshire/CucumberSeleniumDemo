@@ -19,8 +19,8 @@ public class CartSteps {
   private ProductsPage productsPage;
   private CartPage cartPage;
 
-  public CartSteps(WebDriverContext context) {
-    this.driver = context.getDriver();
+  public CartSteps(WebDriverManagerUtil webDriverManager) {
+    this.driver = webDriverManager.getDriver();
   }
 
   @Then("the user should see the first item in the cart")

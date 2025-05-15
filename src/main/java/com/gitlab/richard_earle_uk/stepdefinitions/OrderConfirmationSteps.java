@@ -5,6 +5,7 @@ import com.gitlab.richard_earle_uk.pages.CheckoutOverviewPage;
 import com.gitlab.richard_earle_uk.pages.CheckoutPage;
 import com.gitlab.richard_earle_uk.pages.OrderConfirmationPage;
 import com.gitlab.richard_earle_uk.pages.ProductsPage;
+import com.gitlab.richard_earle_uk.utils.WebDriverManagerUtil;
 import io.cucumber.java.en.Then;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
@@ -15,8 +16,8 @@ public class OrderConfirmationSteps {
   private final WebDriver driver;
   private OrderConfirmationPage orderConfirmationPage;
 
-  public OrderConfirmationSteps(WebDriverContext context) {
-    this.driver = context.getDriver();
+  public OrderConfirmationSteps(WebDriverManagerUtil webDriverManager) {
+    this.driver = webDriverManager.getDriver();
   }
 
   @Then("the user should see a confirmation message")
