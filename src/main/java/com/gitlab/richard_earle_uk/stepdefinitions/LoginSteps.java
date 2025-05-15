@@ -25,6 +25,7 @@ public class LoginSteps {
   public LoginSteps(WebDriverManagerUtil webDriverManager) {
     this.driver = webDriverManager.getDriver();
   }
+
   @Given("the user is on the login page")
   public void user_is_on_login_page() {
     driver.get(ConfigReader.get("base.url"));
@@ -43,7 +44,8 @@ public class LoginSteps {
 
   @Then("the user should be logged in")
   public void the_user_should_be_logged_in() {
-    Assertions.assertTrue(loginPage.isOnInventoryPage(), "User is not on inventory page after login.");
+    Assertions.assertTrue(
+        loginPage.isOnInventoryPage(), "User is not on inventory page after login.");
   }
 
   @Then("the user should see an error message {string}")
@@ -52,8 +54,4 @@ public class LoginSteps {
     Assertions.assertEquals(
         expectedMessage, actualMessage, "Error message does not match expected.");
   }
-
-
-
-
 }

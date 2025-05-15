@@ -1,24 +1,16 @@
 package com.gitlab.richard_earle_uk.stepdefinitions;
 
-import com.gitlab.richard_earle_uk.context.WebDriverContext;
 import com.gitlab.richard_earle_uk.pages.CartPage;
-import com.gitlab.richard_earle_uk.pages.OrderConfirmationPage;
-import com.gitlab.richard_earle_uk.pages.ProductsPage;
-import com.gitlab.richard_earle_uk.utils.DriverFactory;
 import com.gitlab.richard_earle_uk.utils.WebDriverManagerUtil;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.junit.jupiter.api.Assertions;
-import org.openqa.selenium.WebDriver;
 
 public class CartSteps {
 
   private final String FIRST_ITEM_NAME = "Sauce Labs Backpack";
   private final String FIRST_ITEM_PRICE = "29.99";
-  private  WebDriver driver;
-  private ProductsPage productsPage;
-  private CartPage cartPage;
+  private final CartPage cartPage;
 
 
   public CartSteps(WebDriverManagerUtil driverManagerUtil) {

@@ -2,8 +2,6 @@ package com.gitlab.richard_earle_uk.stepdefinitions;
 
 import com.gitlab.richard_earle_uk.utils.DriverFactory;
 import com.gitlab.richard_earle_uk.utils.ScreenshotUtil;
-import com.gitlab.richard_earle_uk.context.WebDriverContext;
-
 import com.gitlab.richard_earle_uk.utils.WebDriverManagerUtil;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
