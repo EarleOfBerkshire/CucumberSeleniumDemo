@@ -13,7 +13,7 @@ import org.openqa.selenium.WebDriver;
 public class CartSteps {
 
   private final String FIRST_ITEM_NAME = "Sauce Labs Backpack";
-  private final String FIRST_ITEM_PRICE = "29.919";
+  private final String FIRST_ITEM_PRICE = "29.99";
   private WebDriver driver = DriverFactory.getDriver();
   private ProductsPage productsPage;
   private CartPage cartPage;
