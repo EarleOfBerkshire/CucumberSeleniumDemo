@@ -1,5 +1,7 @@
 package com.gitlab.richard_earle_uk.stepdefinitions;
 
+import com.gitlab.richard_earle_uk.context.TestContext;
+import com.gitlab.richard_earle_uk.pages.CartPage;
 import com.gitlab.richard_earle_uk.pages.ProductsPage;
 import com.gitlab.richard_earle_uk.utils.WebDriverManagerUtil;
 import io.cucumber.java.en.And;
@@ -9,9 +11,11 @@ import org.junit.jupiter.api.Assertions;
 public class ProductsSteps {
 
   private final ProductsPage productsPage;
+  private final CartPage cartPage;
 
-  public ProductsSteps(WebDriverManagerUtil driverManagerUtil) {
-    this.productsPage = new ProductsPage(driverManagerUtil);
+  public ProductsSteps(TestContext context) {
+    this.productsPage = context.getProductsPage();
+    this.cartPage = context.getCartPage();
   }
 
   @When("the user adds the first item to the cart")
@@ -23,6 +27,5 @@ public class ProductsSteps {
   public void theUserNavigatesToTheCart() {
     productsPage.navigateToCart();
     Assertions.assertTrue(cartPage.isLoaded(), "Cart page did not load");
-
   }
 }

@@ -1,7 +1,7 @@
 package com.gitlab.richard_earle_uk.stepdefinitions;
 
+import com.gitlab.richard_earle_uk.context.TestContext;
 import com.gitlab.richard_earle_uk.pages.OrderConfirmationPage;
-import com.gitlab.richard_earle_uk.utils.WebDriverManagerUtil;
 import io.cucumber.java.en.Then;
 import org.junit.jupiter.api.Assertions;
 
@@ -10,8 +10,8 @@ public class OrderConfirmationSteps {
 
   private final OrderConfirmationPage orderConfirmationPage;
 
-  public OrderConfirmationSteps(WebDriverManagerUtil driverManagerUtil) {
-    this.orderConfirmationPage = new OrderConfirmationPage(driverManagerUtil);
+  public OrderConfirmationSteps(TestContext context) {
+    this.orderConfirmationPage = new OrderConfirmationPage(context.getDriver());
   }
 
   @Then("the user should see a confirmation message")

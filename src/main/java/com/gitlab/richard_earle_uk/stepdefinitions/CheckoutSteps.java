@@ -1,7 +1,7 @@
 package com.gitlab.richard_earle_uk.stepdefinitions;
 
+import com.gitlab.richard_earle_uk.context.TestContext;
 import com.gitlab.richard_earle_uk.pages.CheckoutPage;
-import com.gitlab.richard_earle_uk.utils.WebDriverManagerUtil;
 import io.cucumber.java.en.When;
 
 public class CheckoutSteps {
@@ -11,8 +11,8 @@ public class CheckoutSteps {
 
   private final CheckoutPage checkoutPage;
 
-  public CheckoutSteps(WebDriverManagerUtil driverManagerUtil) {
-    this.checkoutPage = new CheckoutPage(driverManagerUtil);
+  public CheckoutSteps(TestContext context) {
+    this.checkoutPage = new CheckoutPage(context.getDriver());
   }
 
   @When("the user enters valid checkout information")
