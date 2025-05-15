@@ -5,25 +5,23 @@ import com.gitlab.richard_earle_uk.utils.WebDriverManagerUtil;
 import org.openqa.selenium.WebDriver;
 
 public class TestContext {
+
   private final WebDriver driver;
   private final ProductsPage productsPage;
   private final CartPage cartPage;
-
   private final LoginPage loginPage;
-
   private final OrderConfirmationPage orderConfirmationPage;
-  private final CheckoutPage checkoutPage;
   private final CheckoutOverviewPage checkoutOverviewPage;
+  private final CheckoutPage checkoutPage;
 
   public TestContext() {
-    WebDriverManagerUtil driverManagerUtil = new WebDriverManagerUtil();
-    this.driver = driverManagerUtil.getDriver();
+    this.driver = WebDriverManagerUtil.getDriver();
     this.productsPage = new ProductsPage(driver);
     this.cartPage = new CartPage(driver);
     this.loginPage = new LoginPage(driver);
     this.orderConfirmationPage = new OrderConfirmationPage(driver);
-    this.checkoutOverviewPage = new CheckoutOverviewPage(driver);
     this.checkoutPage = new CheckoutPage(driver);
+    this.checkoutOverviewPage = new CheckoutOverviewPage(driver);
   }
 
   public WebDriver getDriver() {
@@ -46,11 +44,11 @@ public class TestContext {
     return orderConfirmationPage;
   }
 
-  public CheckoutOverviewPage getCheckoutOverviewPage() {
-    return checkoutOverviewPage;
-  }
-
   public CheckoutPage getCheckoutPage() {
     return checkoutPage;
+  }
+
+  public CheckoutOverviewPage getCheckoutOverviewPage() {
+    return checkoutOverviewPage;
   }
 }

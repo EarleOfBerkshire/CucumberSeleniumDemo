@@ -11,8 +11,10 @@ public class ProductsSteps {
 
   private final ProductsPage productsPage;
   private final CartPage cartPage;
+  private final TestContext testContext;
 
   public ProductsSteps(TestContext context) {
+    this.testContext = context;
     this.productsPage = context.getProductsPage();
     this.cartPage = context.getCartPage();
   }

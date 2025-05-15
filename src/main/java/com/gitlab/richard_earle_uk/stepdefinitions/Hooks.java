@@ -1,6 +1,5 @@
 package com.gitlab.richard_earle_uk.stepdefinitions;
 
-import com.gitlab.richard_earle_uk.utils.DriverFactory;
 import com.gitlab.richard_earle_uk.utils.ScreenshotUtil;
 import com.gitlab.richard_earle_uk.utils.WebDriverManagerUtil;
 import io.cucumber.java.After;
@@ -19,8 +18,7 @@ public class Hooks {
 
   @Before
   public void setUp() {
-    WebDriver driver = DriverFactory.getDriver();
-    webDriverManager.getDriver();
+    WebDriver driver =  WebDriverManagerUtil.getDriver();
   }
 
   @After
@@ -30,7 +28,7 @@ public class Hooks {
 
   @AfterStep
   public void takeScreenshot(Scenario scenario) {
-    WebDriver driver = webDriverManager.getDriver();
+    WebDriver driver = WebDriverManagerUtil.getDriver();
     if (scenario.isFailed() && driver != null) {
       byte[] screenshot = ScreenshotUtil.captureScreenshotAsBytes(driver);
       scenario.attach(screenshot, "image/png", "failure-screenshot");

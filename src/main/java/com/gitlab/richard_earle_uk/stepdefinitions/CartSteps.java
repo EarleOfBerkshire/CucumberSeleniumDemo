@@ -1,11 +1,10 @@
 package com.gitlab.richard_earle_uk.stepdefinitions;
 
+import com.gitlab.richard_earle_uk.context.TestContext;
 import com.gitlab.richard_earle_uk.pages.CartPage;
-import com.gitlab.richard_earle_uk.utils.WebDriverManagerUtil;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.junit.jupiter.api.Assertions;
-import org.openqa.selenium.WebDriver;
 
 public class CartSteps {
 
@@ -13,8 +12,8 @@ public class CartSteps {
   private final String FIRST_ITEM_PRICE = "29.99";
   private final CartPage cartPage;
 
-  public CartSteps(WebDriver driver) {
-    this.cartPage = new CartPage(driver);
+  public CartSteps(TestContext testContext) {
+    this.cartPage = testContext.getCartPage();
   }
 
   @Then("the user should see the first item in the cart")
