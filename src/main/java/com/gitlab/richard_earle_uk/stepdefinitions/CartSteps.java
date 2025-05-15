@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Assertions;
 public class CartSteps {
 
   private final String FIRST_ITEM_NAME = "Sauce Labs Backpack";
-  private final String FIRST_ITEM_PRICE = "29.99";
+  private final String FIRST_ITEM_PRICE = "29.919";
   private final CartPage cartPage;
 
 
