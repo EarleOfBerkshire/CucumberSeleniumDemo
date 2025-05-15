@@ -16,9 +16,14 @@ public class Hooks {
     }
 
     @After
-    public void tearDown() {
-        System.out.println("Executing @After hook: Quitting WebDriver.");
-        DriverFactory.quitDriver();
+    public void tearDown(Scenario scenario) {
+        System.out.println("Tearing down after scenario: " + scenario.getName());
+        if (DriverFactory.getDriver() != null) {
+            System.out.println("Quitting driver...");
+            DriverFactory.quitDriver();
+        } else {
+            System.out.println("Driver was already null.");
+        }
     }
 
     @AfterStep

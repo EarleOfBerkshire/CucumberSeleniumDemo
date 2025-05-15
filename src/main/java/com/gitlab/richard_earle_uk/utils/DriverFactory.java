@@ -1,13 +1,12 @@
 package com.gitlab.richard_earle_uk.utils;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class DriverFactory {
 
@@ -15,7 +14,8 @@ public class DriverFactory {
 
     public static WebDriver getDriver() {
         if (driver == null) {
-            driver = createChromeDriver();
+            System.out.println("Creating new WebDriver instance.");
+            // create driver instance here
         }
         return driver;
     }
@@ -32,7 +32,7 @@ public class DriverFactory {
         // Create a temporary profile to avoid reused saved credentials
         try {
             Path tempProfileDir = Files.createTempDirectory("chrome-profile");
-            options.addArguments("user-data-dir=" + tempProfileDir.toAbsolutePath().toString());
+            options.addArguments("user-data-dir=" + tempProfileDir.toAbsolutePath());
         } catch (Exception e) {
             System.err.println("Could not create temporary Chrome profile: " + e.getMessage());
         }
@@ -49,8 +49,11 @@ public class DriverFactory {
 
     public static void quitDriver() {
         if (driver != null) {
+            System.out.println("Quitting WebDriver instance.");
             driver.quit();
             driver = null;
+        } else {
+            System.out.println("WebDriver instance already null.");
         }
     }
 }
