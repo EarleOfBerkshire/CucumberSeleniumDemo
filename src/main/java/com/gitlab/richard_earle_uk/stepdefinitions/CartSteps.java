@@ -2,6 +2,7 @@ package com.gitlab.richard_earle_uk.stepdefinitions;
 
 import com.gitlab.richard_earle_uk.context.TestContext;
 import com.gitlab.richard_earle_uk.pages.CartPage;
+import com.gitlab.richard_earle_uk.pages.CheckoutPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.junit.jupiter.api.Assertions;
@@ -11,9 +12,11 @@ public class CartSteps {
   private final String FIRST_ITEM_NAME = "Sauce Labs Backpack";
   private final String FIRST_ITEM_PRICE = "29.99";
   private final CartPage cartPage;
+  private final CheckoutPage checkoutPage;
 
   public CartSteps(TestContext testContext) {
     this.cartPage = testContext.getCartPage();
+    this.checkoutPage = testContext.getCheckoutPage();
   }
 
   @Then("the user should see the first item in the cart")
@@ -32,5 +35,6 @@ public class CartSteps {
   @And("the user proceeds to checkout")
   public void theUserProceedsToCheckout() {
     cartPage.clickCheckoutButton();
+    Assertions.assertTrue(checkoutPage.isLoaded(), "Checkout page did not load");
   }
 }

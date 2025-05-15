@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 
 public class OrderConfirmationPage extends BasePage {
   private static final By headerMessage = By.className("complete-header");
+  private static final By orderConfirmationHeader =
+      By.xpath("//div[@class='subheader' and text()='Finish']");
 
   public OrderConfirmationPage(WebDriver driver) {
     super(driver);
@@ -12,5 +14,9 @@ public class OrderConfirmationPage extends BasePage {
 
   public String getHeaderMessage() {
     return elementUtil.getText(headerMessage);
+  }
+
+  public boolean isLoaded() {
+    return elementUtil.isElementDisplayed(orderConfirmationHeader);
   }
 }
