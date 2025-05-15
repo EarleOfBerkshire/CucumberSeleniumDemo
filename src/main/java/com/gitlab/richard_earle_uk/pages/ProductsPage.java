@@ -12,12 +12,10 @@ public class ProductsPage {
   private final By firstAddToCartButton = By.cssSelector(".inventory_item:first-of-type button");
   private final By shoppingCartLink = By.className("shopping_cart_link");
   private final ElementUtil elementUtil;
-  private final CartPage cartPage;
 
   public ProductsPage(WebDriverManagerUtil driverManagerUtil) {
     this.driver = driverManagerUtil.getDriver();
     this.elementUtil = new ElementUtil(driver);
-    this.cartPage = new CartPage(driver);
   }
 
   public void addFirstItemToCart() {
@@ -26,6 +24,5 @@ public class ProductsPage {
 
   public void navigateToCart() {
     elementUtil.click(shoppingCartLink);
-    Assertions.assertTrue(cartPage.isLoaded(), "Cart page did not load");
   }
 }

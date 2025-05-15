@@ -4,6 +4,7 @@ import com.gitlab.richard_earle_uk.pages.ProductsPage;
 import com.gitlab.richard_earle_uk.utils.WebDriverManagerUtil;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
+import org.junit.jupiter.api.Assertions;
 
 public class ProductsSteps {
 
@@ -21,5 +22,7 @@ public class ProductsSteps {
   @And("the user navigates to the cart")
   public void theUserNavigatesToTheCart() {
     productsPage.navigateToCart();
+    Assertions.assertTrue(cartPage.isLoaded(), "Cart page did not load");
+
   }
 }

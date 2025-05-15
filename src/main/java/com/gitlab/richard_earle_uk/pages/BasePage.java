@@ -5,14 +5,11 @@ import org.openqa.selenium.WebDriver;
 
 public abstract class BasePage {
 
-    protected WebDriver driver;
-    protected ElementUtil elementUtil;
+  protected WebDriver driver;
+  protected ElementUtil elementUtil;
 
-    public BasePage(WebDriver driver) {
-        this.driver = driver;
-        this.elementUtil = new ElementUtil(driver);
-    }
-
-    // enforce that each page must implement a load check
-    public abstract boolean isLoaded();
+  public BasePage(WebDriver driver) {
+    this.driver = driver;
+    this.elementUtil = new ElementUtil(driver);
+  }
 }

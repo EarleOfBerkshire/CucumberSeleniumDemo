@@ -28,7 +28,6 @@ public class CartPage extends BasePage {
     elementUtil.click(checkoutButton);
   }
 
-  @Override
   public boolean isLoaded() {
     return elementUtil.isElementDisplayed(checkoutButton);
   }
