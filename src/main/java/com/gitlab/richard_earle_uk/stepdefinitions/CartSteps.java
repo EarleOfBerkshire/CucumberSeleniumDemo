@@ -2,6 +2,7 @@ package com.gitlab.richard_earle_uk.stepdefinitions;
 
 import com.gitlab.richard_earle_uk.context.WebDriverContext;
 import com.gitlab.richard_earle_uk.pages.CartPage;
+import com.gitlab.richard_earle_uk.pages.OrderConfirmationPage;
 import com.gitlab.richard_earle_uk.pages.ProductsPage;
 import com.gitlab.richard_earle_uk.utils.DriverFactory;
 import com.gitlab.richard_earle_uk.utils.WebDriverManagerUtil;
@@ -15,12 +16,13 @@ public class CartSteps {
 
   private final String FIRST_ITEM_NAME = "Sauce Labs Backpack";
   private final String FIRST_ITEM_PRICE = "29.99";
-  private final WebDriver driver;
+  private  WebDriver driver;
   private ProductsPage productsPage;
   private CartPage cartPage;
 
-  public CartSteps(WebDriverManagerUtil webDriverManager) {
-    this.driver = webDriverManager.getDriver();
+
+  public CartSteps(WebDriverManagerUtil driverManagerUtil) {
+    this.cartPage = new CartPage(driverManagerUtil);
   }
 
   @Then("the user should see the first item in the cart")

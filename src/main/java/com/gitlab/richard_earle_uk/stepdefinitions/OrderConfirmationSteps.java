@@ -13,11 +13,11 @@ import org.openqa.selenium.WebDriver;
 public class OrderConfirmationSteps {
   private final String EXPECTED_ORDER_CONFIRMATION_HEADER = "THANK YOU FOR YOUR ORDER";
 
-  private final WebDriver driver;
+  private  WebDriver driver;
   private OrderConfirmationPage orderConfirmationPage;
 
-  public OrderConfirmationSteps(WebDriverManagerUtil webDriverManager) {
-    this.driver = webDriverManager.getDriver();
+  public OrderConfirmationSteps(WebDriverManagerUtil driverManagerUtil) {
+    this.orderConfirmationPage = new OrderConfirmationPage(driverManagerUtil);
   }
 
   @Then("the user should see a confirmation message")

@@ -1,5 +1,6 @@
 package com.gitlab.richard_earle_uk.pages;
 
+import com.gitlab.richard_earle_uk.utils.WebDriverManagerUtil;
 import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -12,8 +13,8 @@ public class CartPage {
   private static final By checkoutButton = By.className("checkout_button");
   private final WebDriver driver;
 
-  public CartPage(WebDriver driver) {
-    this.driver = driver;
+  public CartPage(WebDriverManagerUtil driverManagerUtil) {
+    this.driver = driverManagerUtil.getDriver();
   }
 
   public String getCartItemName(int cartRow) {

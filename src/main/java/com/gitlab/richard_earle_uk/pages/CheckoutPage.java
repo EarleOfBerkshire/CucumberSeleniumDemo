@@ -1,6 +1,8 @@
 package com.gitlab.richard_earle_uk.pages;
 
 import java.util.List;
+
+import com.gitlab.richard_earle_uk.utils.WebDriverManagerUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -13,8 +15,9 @@ public class CheckoutPage {
   private static final By continueButton = By.cssSelector("input[value='CONTINUE']");
   private final WebDriver driver;
 
-  public CheckoutPage(WebDriver driver) {
-    this.driver = driver;
+  public CheckoutPage(WebDriverManagerUtil driverManagerUtil) {
+    this.driver = driverManagerUtil.getDriver();
+
   }
 
 
