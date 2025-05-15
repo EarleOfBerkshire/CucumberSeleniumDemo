@@ -1,6 +1,5 @@
-package com.gitlab.richard_earle_uk.pages;
+package com.earleofberkshire.pages;
 
-import com.gitlab.richard_earle_uk.utils.ElementUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 

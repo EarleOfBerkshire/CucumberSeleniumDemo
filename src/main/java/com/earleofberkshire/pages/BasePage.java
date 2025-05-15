@@ -1,6 +1,6 @@
-package com.gitlab.richard_earle_uk.pages;
+package com.earleofberkshire.pages;
 
-import com.gitlab.richard_earle_uk.utils.ElementUtil;
+import com.earleofberkshire.utils.ElementUtil;
 import org.openqa.selenium.WebDriver;
 
 public abstract class BasePage {

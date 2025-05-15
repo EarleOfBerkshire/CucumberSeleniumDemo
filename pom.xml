@@ -5,7 +5,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.gitlab.richard_earle_uk</groupId>
+    <groupId>com.earleofberkshire</groupId>
     <artifactId>cucumber-selenium-demo</artifactId>
     <version>1.0.0</version>
 

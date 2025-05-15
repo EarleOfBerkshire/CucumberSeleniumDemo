@@ -1,4 +1,4 @@
-package com.gitlab.richard_earle_uk.utils;
+package com.earleofberkshire.utils;
 
 import java.nio.file.Files;
 import java.nio.file.Path;

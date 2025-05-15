@@ -1,4 +1,4 @@
-package com.gitlab.richard_earle_uk.utils;
+package com.earleofberkshire.utils;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;

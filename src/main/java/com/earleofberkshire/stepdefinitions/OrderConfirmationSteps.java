@@ -1,7 +1,7 @@
-package com.gitlab.richard_earle_uk.stepdefinitions;
+package com.earleofberkshire.stepdefinitions;
 
-import com.gitlab.richard_earle_uk.context.TestContext;
-import com.gitlab.richard_earle_uk.pages.OrderConfirmationPage;
+import com.earleofberkshire.context.TestContext;
+import com.earleofberkshire.pages.OrderConfirmationPage;
 import io.cucumber.java.en.Then;
 import org.junit.jupiter.api.Assertions;
 

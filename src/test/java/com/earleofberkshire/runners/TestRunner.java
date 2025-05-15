@@ -1,4 +1,4 @@
-package com.gitlab.richard_earle_uk.runners;
+package com.earleofberkshire.runners;
 
 import io.cucumber.junit.platform.engine.Cucumber;
 

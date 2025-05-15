@@ -1,4 +1,4 @@
-package com.gitlab.richard_earle_uk.utils;
+package com.earleofberkshire.utils;
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;

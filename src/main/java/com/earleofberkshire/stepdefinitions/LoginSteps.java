@@ -1,15 +1,8 @@
-package com.gitlab.richard_earle_uk.stepdefinitions;
+package com.earleofberkshire.stepdefinitions;
 
-import com.gitlab.richard_earle_uk.context.WebDriverContext;
-import com.gitlab.richard_earle_uk.pages.LoginPage;
-import com.gitlab.richard_earle_uk.utils.ConfigReader;
-import com.gitlab.richard_earle_uk.utils.DriverFactory;
-import com.gitlab.richard_earle_uk.utils.ScreenshotUtil;
-import com.gitlab.richard_earle_uk.utils.WebDriverManagerUtil;
-import io.cucumber.java.After;
-import io.cucumber.java.AfterStep;
-import io.cucumber.java.Before;
-import io.cucumber.java.Scenario;
+import com.earleofberkshire.utils.ConfigReader;
+import com.earleofberkshire.utils.WebDriverManagerUtil;
+import com.earleofberkshire.pages.LoginPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

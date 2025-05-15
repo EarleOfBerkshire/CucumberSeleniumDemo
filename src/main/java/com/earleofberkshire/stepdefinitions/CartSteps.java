@@ -1,8 +1,8 @@
-package com.gitlab.richard_earle_uk.stepdefinitions;
+package com.earleofberkshire.stepdefinitions;
 
-import com.gitlab.richard_earle_uk.context.TestContext;
-import com.gitlab.richard_earle_uk.pages.CartPage;
-import com.gitlab.richard_earle_uk.pages.CheckoutPage;
+import com.earleofberkshire.context.TestContext;
+import com.earleofberkshire.pages.CartPage;
+import com.earleofberkshire.pages.CheckoutPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.junit.jupiter.api.Assertions;

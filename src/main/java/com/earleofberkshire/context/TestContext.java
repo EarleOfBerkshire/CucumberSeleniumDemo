@@ -1,7 +1,12 @@
-package com.gitlab.richard_earle_uk.context;
+package com.earleofberkshire.context;
 
-import com.gitlab.richard_earle_uk.pages.*;
-import com.gitlab.richard_earle_uk.utils.WebDriverManagerUtil;
+import com.earleofberkshire.pages.CartPage;
+import com.earleofberkshire.pages.CheckoutOverviewPage;
+import com.earleofberkshire.pages.CheckoutPage;
+import com.earleofberkshire.pages.LoginPage;
+import com.earleofberkshire.pages.OrderConfirmationPage;
+import com.earleofberkshire.pages.ProductsPage;
+import com.earleofberkshire.utils.WebDriverManagerUtil;
 import org.openqa.selenium.WebDriver;
 
 public class TestContext {
