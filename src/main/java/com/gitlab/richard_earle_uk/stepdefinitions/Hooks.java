@@ -17,7 +17,7 @@ public class Hooks {
 
     @After
     public void tearDown() {
-        System.out.println("Running tearDown...");
+        System.out.println("Executing @After hook: Quitting WebDriver.");
         DriverFactory.quitDriver();
     }
 
